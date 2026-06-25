@@ -110,7 +110,7 @@ SPEARMINT bridges the gap between natural language user searches and structured 
 │                        Groq Cloud API                             │
 │                                                                   │
 │  Inference: llama-3.3-70b-versatile                               │
-│  System: strict JSON output constraint mapping IDs & reasoning     │
+│  System: strict JSON output constraint mapping IDs & reasoning    │
 └───────────────────────────────────────────────────────────────────┘
 ```
 
