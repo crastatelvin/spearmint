@@ -1,6 +1,7 @@
 ﻿import React, { useState } from "react";
 import products from "./data/products";
 import { getRecommendations } from "./services/groq";
+import ProductCard from "./components/ProductCard";
 
 export default function App() {
   const [query, setQuery] = useState("");
@@ -29,28 +30,19 @@ export default function App() {
   }).filter(Boolean);
 
   return (
-    <div className="container" style={{ padding: "40px" }}>
+    <div className="container">
       <h1>Spearmint AI Recommendations</h1>
       <form onSubmit={handleSearch}>
         <input value={query} onChange={e => setQuery(e.target.value)} placeholder="Query preferences..." />
         <button type="submit" disabled={loading}>Search</button>
       </form>
-      {loading && <p>Loading recommendations...</p>}
-      {error && <p style={{ color: "red" }}>{error}</p>}
-      
-      {recommendedItems.length > 0 && (
-        <div>
-          <h2>Recommendations</h2>
-          <div className="grid">
-            {recommendedItems.map(item => (
-              <div key={item.id} className="card" style={{ borderColor: "gold" }}>
-                <h3>{item.name} (Recommended)</h3>
-                <p>{item.reason}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
+      {loading && <p>Loading...</p>}
+      {error && <p>{error}</p>}
+      <div className="grid">
+        {products.map(product => (
+          <ProductCard key={product.id} product={product} />
+        ))}
+      </div>
     </div>
   );
 }
