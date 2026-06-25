@@ -57,17 +57,20 @@ SPEARMINT bridges the gap between natural language user searches and structured 
 <div align="center">
 
 ### 1) Landing Page & Search
-*Glassmorphic dashboard featuring natural language input query box and hot suggestion pills.*
+
+![Landing Page](docs/screenshots/01-landing-page.png)
 
 <br/>
 
 ### 2) AI-Powered Recommendations
-*Products highlighted in pulsing gold frames containing inline SVG category iconography and detailed matching reasoning.*
+
+![AI Recommendations](docs/screenshots/02-recommendations.png)
 
 <br/>
 
 ### 3) Live API Traffic Monitor & Console
-*Pulsing connection badges displaying HTTP status, latency, request/response JSON payloads, and system prompt contexts.*
+
+![Developer Console](docs/screenshots/03-dev-console.png)
 
 </div>
 
