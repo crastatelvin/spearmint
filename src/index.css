@@ -1,0 +1,18 @@
+﻿body {
+  background-color: #121214;
+  color: #f4f4f5;
+  font-family: sans-serif;
+  padding: 40px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 8px;
+}
