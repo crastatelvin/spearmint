@@ -6,8 +6,11 @@ import ProductCard from "./components/ProductCard";
 export default function App() {
   const [query, setQuery] = useState("");
   const [recommendations, setRecommendations] = useState([]);
+  const [metadata, setMetadata] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [consoleMinimized, setConsoleMinimized] = useState(true);
+  const [showDevConsole, setShowDevConsole] = useState(false);
 
   const handleSearch = async (e) => {
     e.preventDefault();
@@ -17,6 +20,7 @@ export default function App() {
     try {
       const result = await getRecommendations(query, products);
       setRecommendations(result.recommendations);
+      setMetadata(result.metadata);
     } catch (err) {
       setError(err.message);
     } finally {
@@ -31,18 +35,25 @@ export default function App() {
 
   return (
     <div className="container">
-      <h1>Spearmint AI Recommendations</h1>
+      <header className="header">
+        <h1>Spearmint</h1>
+        <button onClick={() => setShowDevConsole(!showDevConsole)}>Toggle Dev Mode</button>
+      </header>
       <form onSubmit={handleSearch}>
-        <input value={query} onChange={e => setQuery(e.target.value)} placeholder="Query preferences..." />
-        <button type="submit" disabled={loading}>Search</button>
+        <input value={query} onChange={e => setQuery(e.target.value)} />
+        <button type="submit">Search</button>
       </form>
-      {loading && <p>Loading...</p>}
-      {error && <p>{error}</p>}
       <div className="grid">
         {products.map(product => (
           <ProductCard key={product.id} product={product} />
         ))}
       </div>
+      {showDevConsole && metadata && (
+        <div className={`dev-console ${consoleMinimized ? "minimized" : ""}`}>
+          <div onClick={() => setConsoleMinimized(!consoleMinimized)}>Logs</div>
+          <pre>{metadata.rawResponse}</pre>
+        </div>
+      )}
     </div>
   );
 }
