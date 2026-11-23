@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="public/images/spearmint-logo.png" alt="Spearmint logo" width="180"/>
+
 # 🍃 SPEARMINT
 
 ### AI-Powered Product Recommendation Engine — Dynamic E-Commerce Catalog with Real-Time Telemetry
